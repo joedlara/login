@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login/Regester Today!</title>
+</head>
+	<body>
+		<style>
+			label{
+				display: block;
+				margin-bottom: 5px;
+			}
+			form{
+				display: inline-block;
+				vertical-align: top;
+				border: 1px solid black;
+				padding: 10px;
+			}
+		</style>
+
+		{% for message in messages %}
+			<p>{{message}}</p>
+		{% endfor %}
+		
+
+
+		<form action="/register" method="POST">
+			<h1>Register</h1>
+			{% csrf_token %}
+
+			<label for="first_name">
+				First Name 
+				<input type="text" name="first_name">
+			</label>
+
+			<label for="last_name">
+				Last Name 
+				<input type="text" name="last_name">
+			</label>
+
+			<label for="email">
+				Email
+				<input type="email" name="email">
+			</label>
+
+			<label for="password">
+				Password
+				<input type="password" name="password">
+			</label>
+
+			<label for="confirm">
+				Confirm Password
+				<input type="password" name="confirm">
+			</label>
+
+			<label for="birthdate">
+				Birthday
+				<input type="date" name="birthdate">
+			</label>
+
+			<button>Register</button>
+		</form>
+		<form action="/login" method="POST">
+			<h1>Login</h1>
+			{% csrf_token %}
+			<label for="email">
+				Email
+				<input type="email" name="email">
+			</label>
+
+			<label for="password">
+				Password
+				<input type="password" name="password">
+			</label>
+			<button>Login</button>
+		</form>
+
+
+
+
+
+
+
+
+	</body>
+</html>
